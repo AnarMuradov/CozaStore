@@ -5,6 +5,21 @@
     width: 70%;
     min-height: 2000px;
     margin: auto;
+    .ProductsHead{
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .ProductsFilter{
+      display: flex;
+      justify-content: space-between;
+      .filterList{
+        display: flex;
+        gap: 20px;
+        li{
+          cursor: pointer;
+        }
+      }
+    }
     .ProductsContainer {
       display: grid;
       grid-template-columns: auto auto auto;

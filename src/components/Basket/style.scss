@@ -1,0 +1,70 @@
+
+
+#basket{
+    position: fixed;
+    width: 400px;
+    height: 100%;
+    top: 0;
+    background-color: white;
+    z-index: 90;
+    transition: 500ms;
+    .basketContainer{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .basketHead{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .basketHeadName{
+                
+                width: 80%;
+                height: 160px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .basketProducts{
+                display: flex;
+                flex-direction: column;
+                .basketProduct{
+                    display: flex;
+                    align-items: center;
+                    gap: 50px;
+                .basketImg{
+                    width: 100px;
+                    height: 100px;
+                }
+                .basketProductInfo{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    color: #999999;
+                }
+
+            }
+            }
+        }
+        .basketFooter{
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            padding-left: 50px;
+            .basketTotal{
+                padding-left:40px ;
+            }
+            .basketButton{
+                width: 80%;
+                height: 160px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+        }
+    }
+}
