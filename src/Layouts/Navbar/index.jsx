@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import './style.scss'
 import Basket from '../../components/Basket';
 import { BasketContext } from '../../Context/BasketContext';
+import { Link } from 'react-router-dom';
  
 const Navbar = () => {
     const [show, setShow] = useState(true);
@@ -34,12 +35,12 @@ const Navbar = () => {
         </div>
         <div className='navItem'>
             <ul className='navItemList'>
-                <li>Home</li>
+                <Link to={"/"}><li>Home</li></Link>
                 <li>Shop</li>
                 <li>Features</li>
                 <li>Blog</li>
                 <li>About</li>
-                <li>Contact</li>
+                <Link to={"/Contact"}><li>Contact</li></Link>
             </ul>
         </div>
        </div>

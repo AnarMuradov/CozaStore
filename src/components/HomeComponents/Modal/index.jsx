@@ -8,6 +8,7 @@ const Modal = ({item,setItem}) => {
         <div className='modalBg'>
         <div className='modal'>
             <div className='modalContainer'>
+            <button className='modalCloseBtn'  onClick={()=>setItem(null)}>X</button>
             <div className='modalImage'>
                 <img src={item.thumbnail} alt="" />
             </div>
@@ -32,7 +33,6 @@ const Modal = ({item,setItem}) => {
                 <button onClick={()=>addBasket(item)}>Add to Basket</button>
             </div>
             </div>
-            <button onClick={()=>setItem(null)} style={{backgroundColor:"red"}}>Close</button>
         </div>
         </div>
         </>

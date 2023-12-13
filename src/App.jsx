@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainLayout from './Layouts/MainLayout';
 import Home from './Pages/Home';
+import Contact from './Pages/Contact';
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout/>}>
-        <Route path="/" element={<Home/>}/>
+        <Route index element={<Home/>}/>
+        <Route path="/Contact" element={<Contact/>}/>
 
         </Route>
       </Routes>

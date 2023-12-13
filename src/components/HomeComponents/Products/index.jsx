@@ -9,15 +9,30 @@ const Products = () => {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(true);
   const [api, setApi] = useState([]);
-  function getapi() {
+  const [visibleData, setVisibleData] = useState([]);
+  const dataLimit = 8;
+  // function getapi() {
+  //   fetch(
+  //     "https://6573ac96f941bda3f2af125e.mockapi.io/juan-store/api/v1/products"
+  //   )
+  //     .then((res) => res.json())
+  //     .then(data => {
+  //       setApi(data);
+  //       setVisibleData(data.slice(0, dataLimit));
+
+  //     })
+
+  // }
+  useEffect(() => {
     fetch(
       "https://6573ac96f941bda3f2af125e.mockapi.io/juan-store/api/v1/products"
     )
       .then((res) => res.json())
-      .then((data) => setApi(data));
-  }
-  useEffect(() => {
-    getapi();
+      .then((data) => {
+        setApi(data);
+        setVisibleData(data.slice(0, dataLimit));
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
   function handleCategory(category) {
     setCategory(category);
