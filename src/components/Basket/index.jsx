@@ -16,7 +16,7 @@ const Basket = ({setIsOpen,isOpen}) => {
                     {basket.map((x)=>{
                         return(
                             <div className='basketProduct' key={x.id}>
-                            <img onClick={()=>removeItem(x)} className='basketImg' src={x.images} alt="" />
+                            <img onClick={()=>removeItem(x)} className='basketImg' src={x.thumbnail} alt="" />
                             <div className='basketProductInfo'>
                             <h4>{x.model}</h4>
                             <p>{x.count} x ${x.price}</p>

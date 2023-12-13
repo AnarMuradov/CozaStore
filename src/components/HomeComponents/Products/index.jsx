@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./style.scss";
 import { BasketContext } from "../../../Context/BasketContext";
+import Modal from "../Modal";
 const Products = () => {
-  const { addBasket}  = useContext(BasketContext)
-  const [category, setCategory] = useState("All")
-
+  const { basket, addBasket } = useContext(BasketContext);
+  const [category, setCategory] = useState("All");
+  const [item, setItem] = useState(null);
+  const [search, setSearch] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
   const [api, setApi] = useState([]);
   function getapi() {
     fetch(
@@ -16,11 +19,12 @@ const Products = () => {
   useEffect(() => {
     getapi();
   }, []);
-    function handleCategory(category){
-setCategory(category)
-    }
+  function handleCategory(category) {
+    setCategory(category);
+  }
 
-  const filterProducts = category=== "All" ? api : api.filter((item) =>item.category===category)
+  const filterProducts =
+    category === "All" ? api : api.filter((item) => item.category === category);
 
   return (
     <section id="Products">
@@ -30,39 +34,59 @@ setCategory(category)
         </div>
         <div className="ProductsFilter">
           <ul className="filterList">
-            <li onClick={()=>handleCategory("All")}>All</li>
-            <li onClick={()=>handleCategory("Mens")}>Mens</li>
-            <li onClick={()=>handleCategory("Womens")}>Womens</li>
-            <li onClick={()=>handleCategory("Kids")}>Kids</li>
+            <li onClick={() => handleCategory("All")}>All</li>
+            <li onClick={() => handleCategory("Mens")}>Mens</li>
+            <li onClick={() => handleCategory("Womens")}>Womens</li>
+            <li onClick={() => handleCategory("Kids")}>Kids</li>
           </ul>
           <div className="filterBlock">
             <button>Filter</button>
+            <button onClick={() => setIsOpen(!isOpen)}>Search</button>
           </div>
         </div>
-            {/* <div className="filterBlockContent">
-              <h4>Sort By Price</h4>
-              <ul className="priceList">
-            <li>All</li>
-            <li>$0-$30</li>
-            <li>$30-$60</li>
-            <li>$60-$100</li>
-            <li>$100+</li>
-          </ul>
-            </div> */}
+        <input
+          style={
+            isOpen
+              ? { height: "60px", transition: "500ms" }
+              : { height: "0px", border: "none", transition: "500ms" }
+          }
+          placeholder="Search"
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
+        {item ? <Modal setItem={setItem} item={item} /> : null}
         <div className="ProductsContainer">
-          {filterProducts.map((x) => {
-            return (
-              <div className="product" key={x.id}>
-                <img className="productsImg" src={x.images} alt="" />
-                <div className="prodName">
-                  <h4>{x.model}</h4>
-                  <i onClick={()=>addBasket(x)} class="fa-regular fa-heart"></i>
-                </div><p>${x.price}</p>
-                
-                <div className="prodIcon"></div>
-              </div>
-            );
-          })}
+          {filterProducts
+            .filter((x) => x.name.toLowerCase().includes(search.toLowerCase()))
+            .map((x) => {
+              let added = basket.findIndex((y) => y.id === x.id);
+              return (
+                <div className="product" key={x.id}>
+                  <img
+                    onClick={() => setItem(x)}
+                    className="productsImg"
+                    src={x.thumbnail}
+                    alt=""
+                  />
+                  <div className="prodName">
+                    <h4>{x.model}</h4>
+                    <div className="prodIcon">
+                      <i className="fa-regular fa-heart"></i>
+                      <i
+                        style={added !== -1 ? { color: "red" } : null}
+                        onClick={() => addBasket(x)}
+                        class="fa-solid fa-cart-shopping"
+                      ></i>
+                    </div>
+                  </div>
+                  <p>${x.price}</p>
+
+                  <div className="prodIcon"></div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </section>

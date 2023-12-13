@@ -20,6 +20,17 @@
         }
       }
     }
+    input{
+      border: 1px solid #e6e6e6;
+      border-radius: 2px;
+      height: 60px;
+      width: 70%;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    ::placeholder{
+      font-size: 20px;
+    }
     .ProductsContainer {
       display: grid;
       grid-template-columns: auto auto auto;
@@ -37,7 +48,7 @@
         }
         .productsImg:hover{
             transform: scale(1.1, 1); 
-          
+            border-bottom: none;
           }
         .prodName {
           display: flex;
@@ -52,13 +63,17 @@
           h4:hover{
             color: #717fe0;
           }
-          i {
-            font-size: 20px;
-            transition: 300ms;
-            cursor: pointer;
-          }
-          i:hover{
-            color: red;
+          .prodIcon{
+            display: flex;
+            gap: 10px;
+            i {
+              font-size: 20px;
+              transition: 300ms;
+              cursor: pointer;
+            }
+            .fa-cart-shopping:hover{
+              color: red;
+            }
           }
         }
         p {

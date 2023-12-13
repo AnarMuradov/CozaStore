@@ -6,7 +6,7 @@ import { BasketContext } from '../../Context/BasketContext';
 const Navbar = () => {
     const [show, setShow] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
     const {basket }  = useContext(BasketContext)
     const controlNavbar = () => {
       if (window.scrollY > 30) {
