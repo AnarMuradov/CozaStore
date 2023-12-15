@@ -73,7 +73,7 @@ const Products = () => {
 
         {item ? <Modal setItem={setItem} item={item} /> : null}
         <div className="ProductsContainer">
-          {filterProducts
+          { filterProducts
             .filter((x) => x.name.toLowerCase().includes(search.toLowerCase()))
             .map((x) => {
               let added = basket.findIndex((y) => y.id === x.id);

@@ -1,0 +1,123 @@
+.contactFormSection{
+    width: 100%;
+    height: 762px;
+    .contactFormContainer{
+        width: 80%;
+        height: 762px;
+         margin: auto;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         .formBlock{
+            width: 50%;
+            min-height: 550px;
+            border: 1px solid #e6e6e6;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            .formContainer{
+                height: 400px;
+                display: flex;
+                width: 70%;
+                justify-content: space-between;
+                flex-direction: column;
+                text-align: center;
+                input{
+                    height:50px;
+                    border: 1px solid #e6e6e6;
+
+                }
+                textarea{
+                    min-height: 199px;
+                    border: 1px solid #e6e6e6;
+                }
+                a{
+                    background-color: #222;
+                    line-height: 46px;
+                    border-radius: 20px;
+                    color: white;
+                    text-align: center;
+                }
+                span{
+                    font-size: 24px;
+                }
+            }
+
+         }
+
+
+
+         .contactBlock{
+            width: 50%;
+            min-height: 550px;
+            border: 1px solid #e6e6e6;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            .contactContainer{
+                height: 300px;
+                display: flex;
+                width: 70%;
+                justify-content: space-between;
+                flex-direction: column;
+                text-align: center;
+
+                .address{
+                    display: flex;
+                    text-align: left;
+                    i{
+                        margin-right: 25px;
+                    }
+                    .addressInfo{
+                        width: 65%;
+                        
+                        p{
+                            margin-top: 20px;
+                            font-size: 15px;
+                            color: #888;
+                        }
+                    }
+                }
+
+                .phone{
+                    display: flex;
+                    text-align: left;
+                    i{
+                        margin-right: 25px;
+                    }
+                        .phoneInfo{
+
+                            h4{
+                                margin-bottom: 20px;
+                            }
+                            a{
+                                    font-size: 15px;
+                            }
+
+                        }
+                    
+                }
+
+                .email{
+                    display: flex;
+                    text-align: left;
+                    i{
+                        margin-right: 25px;
+                    }
+                    .emailName{
+                        h4{
+                            margin-bottom: 20px;
+                        }
+                        a{
+                          
+                                font-size: 15px;
+                        }
+                    }
+                   
+                }
+            }
+         }
+    }
+}
